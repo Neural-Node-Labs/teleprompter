@@ -1,6 +1,7 @@
 # Teleprompter (Electron + React + TypeScript)
 - By Neural Node Labs
-- 
+- 2026
+
 A desktop teleprompter for Windows: a control panel window for writing/styling
 your script, and a separate always-on-top, transparent, mirrorable prompter
 display window — plus a phone-based remote control over your local network.
