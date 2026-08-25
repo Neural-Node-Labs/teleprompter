@@ -1,0 +1,53 @@
+{
+  "name": "teleprompter-app",
+  "version": "0.1.0",
+  "description": "A desktop teleprompter app for Windows (Electron + React + TypeScript)",
+  "main": "dist-electron/main/index.js",
+  "author": "You",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -p tsconfig.json --noEmit && vite build && cross-env CSC_IDENTITY_AUTO_DISCOVERY=false electron-builder",
+    "build:portable": "tsc -p tsconfig.json --noEmit && vite build && cross-env CSC_IDENTITY_AUTO_DISCOVERY=false electron-builder --win portable",
+    "build:unpack": "vite build && cross-env CSC_IDENTITY_AUTO_DISCOVERY=false electron-builder --dir",
+    "preview": "vite preview",
+    "lint": "eslint src --ext .ts,.tsx"
+  },
+  "dependencies": {
+    "electron-store": "^8.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "ws": "^8.18.0",
+    "zustand": "^4.5.5"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0",
+    "@types/ws": "^8.5.12",
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.20",
+    "cross-env": "^7.0.3",
+    "electron": "^32.0.1",
+    "electron-builder": "^24.13.3",
+    "postcss": "^8.4.45",
+    "tailwindcss": "^3.4.10",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.2",
+    "vite-plugin-electron": "^0.28.8",
+    "vite-plugin-electron-renderer": "^0.14.6"
+  },
+  "build": {
+    "appId": "com.example.teleprompter",
+    "productName": "Teleprompter",
+    "files": [
+      "dist",
+      "dist-electron"
+    ],
+    "win": {
+      "target": ["nsis", "portable"]
+    },
+    "portable": {
+      "artifactName": "${productName}-portable.${ext}"
+    }
+  }
+}
